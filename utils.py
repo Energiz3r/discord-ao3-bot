@@ -1,6 +1,6 @@
 from io import StringIO
 from html.parser import HTMLParser
-from pathlib import Path
+from secretConfig import workingDir
 
 
 class MLStripper(HTMLParser):
@@ -42,7 +42,7 @@ def find_nth(haystack, needle, n):
 
 
 def hasWorkBeenPosted(workId, addToList=False):
-    file = open(Path("workIDs.txt"), "r")
+    file = open(workingDir + "workIDs.txt", "r")
     lines = file.readlines()
     idDidExist = False
     for line in lines:
@@ -50,7 +50,7 @@ def hasWorkBeenPosted(workId, addToList=False):
             idDidExist = True
     file.close()
     if (addToList):
-        file2 = open(Path("workIDs.txt"), "a")
+        file2 = open(workingDir + "workIDs.txt", "a")
         if not idDidExist:
             file2.write(workId + '\n')
         file2.close()
