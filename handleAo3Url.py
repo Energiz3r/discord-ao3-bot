@@ -16,7 +16,7 @@ async def handleAo3Url(message):
     else:
         story = parseStory(url, workId)
 
-        if story['fandom'] != 'The Locked Tomb Series | Gideon the Ninth Series - Tamsyn Muir':
+        if 'The Locked Tomb' not in story['fandom'] and 'Gideon the Ninth' not in story['fandom'] and 'Harrow the Ninth' not in story['fandom'] and 'Nona the Ninth' not in story['fandom'] and 'Alecto the Ninth' not in story['fandom']:
             print('Work belonged to another fandom, skipping.')
             return False
 
